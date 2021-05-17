@@ -1,8 +1,13 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import Routes from '../routes';
 
 const App = () => {
-  return <Text>Haloo gaiss</Text>;
+  return (
+    <NavigationContainer>
+      <Routes />
+    </NavigationContainer>
+  );
 };
 
 export default App;

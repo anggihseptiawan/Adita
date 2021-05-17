@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
-import {Pradita} from '../assets';
+import {View, StyleSheet, Image} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Container} from '../components/Container';
 import {BoldText} from '../components/BoldText';
 import {NormalText} from '../components/NormalText';
+import {Pradita} from '../assets';
 import {Gap} from '../components/Gap';
 
 const About = () => {
