@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, StyleSheet} from 'react-native';
 
 type BoldTextProps = {
-  children: string;
+  children?: string;
   fs?: number;
 };
 
