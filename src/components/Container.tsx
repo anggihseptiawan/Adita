@@ -16,6 +16,6 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 50,
     width: '100%',
-    backgroundColor: '#eaeaf6',
+    backgroundColor: '#FFCF86',
   },
 });

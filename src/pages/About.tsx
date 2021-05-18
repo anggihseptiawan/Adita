@@ -11,7 +11,7 @@ const About = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <Container>
-        <BoldText>About Pradita University</BoldText>
+        <BoldText>ABOUT PRADITA UNIVERSITY</BoldText>
         <Image source={Pradita} style={styles.headerImage} />
         <NormalText>
           Pradita University lahir dari jaringan korporasi berbagai industri
@@ -26,6 +26,40 @@ const About = () => {
         </NormalText>
         <View>
           <Gap mt={30} />
+          <BoldText>CHAIRMAN OF FOUNDATION PRADITA UNIVERSITY</BoldText>
+          <Gap mb={14} />
+          <View style={styles.person}>
+            <Image
+              source={{
+                uri: 'https://www.pradita.ac.id/assets/front/images/new/founder.jpg',
+              }}
+              style={styles.figure}
+            />
+            <View style={styles.description}>
+              <BoldText>SOETJIPTO NAGARIA</BoldText>
+              <Gap mb={5} />
+              <NormalText>
+                Founder of Pradita University, President Commisioner of
+                Summarecon
+              </NormalText>
+            </View>
+          </View>
+          <View style={styles.person}>
+            <Image
+              source={{
+                uri: 'https://www.pradita.ac.id/assets/front/images/new/Pak%20Bima.jpg',
+              }}
+              style={styles.figure}
+            />
+            <View style={styles.description}>
+              <BoldText>BIMA HIMAWAN RAMANTIKA</BoldText>
+              <Gap mb={5} />
+              <NormalText>President of Foundation</NormalText>
+            </View>
+          </View>
+        </View>
+        <View>
+          <Gap mt={20} />
           <BoldText>PRADITA UNIVERSITY CAMPUS</BoldText>
           <Gap mb={8} />
           <View>
@@ -55,6 +89,19 @@ const styles = StyleSheet.create({
     height: 200,
     borderRadius: 6,
     marginVertical: 20,
+  },
+  person: {
+    flexDirection: 'row',
+    marginBottom: 10,
+  },
+  description: {
+    flex: 1,
+  },
+  figure: {
+    width: 80,
+    height: 80,
+    borderRadius: 15,
+    marginRight: 8,
   },
   location: {
     marginTop: 30,

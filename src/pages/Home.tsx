@@ -27,28 +27,33 @@ const Home = ({navigation}: any) => {
       </Container>
       <View style={styles.boxContainer}>
         <TouchableNativeFeedback onPress={() => navigation.navigate('Chat')}>
-          <View style={styles.box}>
-            <Text>Interaktif Chat</Text>
+          <View style={styles.boxChat}>
+            <BoldText>Interaktif Chat</BoldText>
+            <View style={styles.line}></View>
           </View>
         </TouchableNativeFeedback>
         <TouchableNativeFeedback onPress={() => navigation.navigate('Events')}>
-          <View style={styles.box}>
-            <Text>Events</Text>
+          <View style={styles.boxEvent}>
+            <BoldText>Events</BoldText>
+            <View style={styles.line}></View>
           </View>
         </TouchableNativeFeedback>
         <TouchableNativeFeedback onPress={() => navigation.navigate('News')}>
-          <View style={styles.box}>
-            <Text>News</Text>
+          <View style={styles.boxNews}>
+            <BoldText>News</BoldText>
+            <View style={styles.line}></View>
           </View>
         </TouchableNativeFeedback>
         <TouchableNativeFeedback onPress={() => navigation.navigate('About')}>
-          <View style={styles.box}>
-            <Text>About</Text>
+          <View style={styles.boxAbout}>
+            <BoldText>About</BoldText>
+            <View style={styles.line}></View>
           </View>
         </TouchableNativeFeedback>
         <TouchableNativeFeedback onPress={() => navigation.navigate('Career')}>
-          <View style={styles.box}>
-            <Text>Career</Text>
+          <View style={styles.boxCareer}>
+            <BoldText>Career</BoldText>
+            <View style={styles.line}></View>
           </View>
         </TouchableNativeFeedback>
       </View>
@@ -58,7 +63,7 @@ const Home = ({navigation}: any) => {
 
 const styles = StyleSheet.create({
   body: {
-    backgroundColor: '#eaeaf6',
+    backgroundColor: '#FFCF86',
   },
   header: {
     flexDirection: 'column',
@@ -75,21 +80,81 @@ const styles = StyleSheet.create({
   },
   boxContainer: {
     flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     paddingVertical: 30,
     paddingHorizontal: 15,
     backgroundColor: 'white',
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
   },
-  box: {
+  boxCareer: {
+    position: 'relative',
     display: 'flex',
-    width: '100%',
+    width: '46%',
     marginBottom: 10,
-    minHeight: 100,
+    marginHorizontal: 5,
+    minHeight: 150,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#eaeaf6',
-    borderRadius: 8,
+    backgroundColor: '#FEB18F',
+    borderRadius: 20,
+  },
+  boxChat: {
+    position: 'relative',
+    display: 'flex',
+    width: '46%',
+    marginBottom: 10,
+    marginHorizontal: 5,
+    minHeight: 150,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFCF86',
+    borderRadius: 20,
+  },
+  boxEvent: {
+    position: 'relative',
+    display: 'flex',
+    width: '46%',
+    marginBottom: 10,
+    marginHorizontal: 5,
+    minHeight: 150,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FA6E5A',
+    borderRadius: 20,
+  },
+  line: {
+    position: 'absolute',
+    bottom: 10,
+    height: 8,
+    width: '50%',
+    borderRadius: 6,
+    backgroundColor: '#FFF',
+  },
+  boxAbout: {
+    position: 'relative',
+    display: 'flex',
+    width: '46%',
+    marginBottom: 10,
+    marginHorizontal: 5,
+    minHeight: 150,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#808AFF',
+    borderRadius: 20,
+  },
+  boxNews: {
+    position: 'relative',
+    display: 'flex',
+    width: '46%',
+    marginBottom: 10,
+    marginHorizontal: 5,
+    minHeight: 150,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#6CB28E',
+    borderRadius: 20,
   },
   event: {
     width: 200,
