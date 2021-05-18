@@ -10,6 +10,7 @@ import {
   About,
   Career,
   CareerDetail,
+  Splash,
 } from '../pages';
 
 const Stack = createStackNavigator();
@@ -17,6 +18,11 @@ const Stack = createStackNavigator();
 const Routes = () => {
   return (
     <Stack.Navigator>
+      <Stack.Screen
+        name="Splash"
+        component={Splash}
+        options={{headerShown: false}}
+      />
       <Stack.Screen
         name="Home"
         component={Home}

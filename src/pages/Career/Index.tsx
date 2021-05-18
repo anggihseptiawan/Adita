@@ -12,6 +12,41 @@ const Career = ({navigation}: any) => {
     <ScrollView style={styles.wrapper} showsVerticalScrollIndicator={false}>
       <Container>
         <BoldText>Bergabung bersama kami!</BoldText>
+        <View style={styles.imageGroup}>
+          <Image
+            source={{
+              uri: 'https://www.pradita.ac.id/assets/front/images/new/adri.jpg',
+            }}
+            style={styles.image1}
+          />
+          <Image
+            source={{
+              uri: 'https://www.pradita.ac.id/assets/front/images/new/Pak%20Herman.jpg',
+            }}
+            style={styles.image2}
+          />
+          <Image
+            source={{
+              uri: 'https://www.pradita.ac.id/assets/front/images/new/marc.jpg',
+            }}
+            style={styles.image3}
+          />
+          <Image
+            source={{
+              uri: 'https://www.pradita.ac.id/assets/front/images/new/Ibu%20Thresia%20Mareta.jpg',
+            }}
+            style={styles.image4}
+          />
+          <Image
+            source={{
+              uri: 'https://www.pradita.ac.id/assets/front/images/new/Pak%20Tono%20Raharja.jpg',
+            }}
+            style={styles.image5}
+          />
+          <View style={styles.you}>
+            <BoldText>You ?</BoldText>
+          </View>
+        </View>
         <Gap mb={10} />
         <TouchableNativeFeedback
           onPress={() => navigation.navigate('CareerDetail')}>
@@ -75,9 +110,74 @@ const styles = StyleSheet.create({
   time: {
     fontSize: 10,
   },
+  imageGroup: {
+    flexDirection: 'row',
+    marginTop: 10,
+    marginBottom: 20,
+  },
   image: {
     width: 20,
-    height: 10,
+    height: 14,
+  },
+  image1: {
+    position: 'relative',
+    width: 60,
+    height: 60,
+    borderRadius: 50,
+    borderColor: '#FA6E5A',
+    borderWidth: 2,
+  },
+  image2: {
+    position: 'relative',
+    zIndex: -1,
+    left: -10,
+    width: 60,
+    height: 60,
+    borderRadius: 50,
+    borderColor: '#FA6E5A',
+    borderWidth: 2,
+  },
+  image3: {
+    position: 'relative',
+    zIndex: -2,
+    left: -20,
+    width: 60,
+    height: 60,
+    borderRadius: 50,
+    borderColor: '#FA6E5A',
+    borderWidth: 2,
+  },
+  image4: {
+    position: 'relative',
+    zIndex: -3,
+    left: -30,
+    width: 60,
+    height: 60,
+    borderRadius: 50,
+    borderColor: '#FA6E5A',
+    borderWidth: 2,
+  },
+  image5: {
+    position: 'relative',
+    zIndex: -4,
+    left: -40,
+    width: 60,
+    height: 60,
+    borderRadius: 50,
+    borderColor: '#FA6E5A',
+    borderWidth: 2,
+  },
+  you: {
+    position: 'relative',
+    zIndex: -5,
+    left: -50,
+    width: 60,
+    height: 60,
+    borderRadius: 50,
+    backgroundColor: '#FA6E5A',
+    color: 'white',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
