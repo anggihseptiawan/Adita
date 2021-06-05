@@ -24,7 +24,7 @@ const NewsDetail = ({route}: any) => {
     	.then(res => res.json())
     	.then(({data}) => setNews(data))
 
-	})
+	}, [])
 	return (
 		<ScrollView showsVerticalScrollIndicator={false}>
 			<Container>

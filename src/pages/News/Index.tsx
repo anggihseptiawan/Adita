@@ -15,11 +15,12 @@ interface NewsProps {
 const News = ({navigation}: any) => {
   const [allNews, setAllNews] = useState<NewsProps[]>([] as NewsProps[])
 
-  useEffect(() => {
+  useEffect(() => { 
     fetch('https://ffb1eebfba46.ngrok.io/api/news')
     .then(res => res.json())
     .then(({data}) => setAllNews(data))
   }, [])
+
   return (
     <Container>
       <Text style={styles.header}>Berita Terbaru</Text>

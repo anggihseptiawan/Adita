@@ -1,39 +1,53 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Container} from '../../components/Container';
 import {View, StyleSheet} from 'react-native';
 import {BoldText} from '../../components/BoldText';
 import {Gap} from '../../components/Gap';
 import {NormalText} from '../../components/NormalText';
 
-const CareerDetail = () => {
+interface CareerProps {
+	id_career: number,
+	title: string,
+	qualification: string,
+	description: string,
+	duedate: string,
+	createdAt: string,
+	updatedAt: string
+  } 
+
+const CareerDetail = ({route}: any) => {
+	const [career, setCareer] = useState<CareerProps>({} as CareerProps)
+	useEffect(() => {
+		const {id_career} = route.params;
+		
+		fetch(`https://ffb1eebfba46.ngrok.io/api/career/${id_career}`)
+    	.then(res => res.json())
+    	.then(({data}) => setCareer(data))
+
+	}, [])
 	return (
 		<Container>
 			<View style={styles.section}>
 				<BoldText>Position</BoldText>
 				<Gap mb={5} />
-				<NormalText>Software Engineer</NormalText>
+				<NormalText>{career?.title}</NormalText>
 			</View>
 			<View style={styles.section}>
 				<BoldText>Description</BoldText>
 				<Gap mb={5} />
-				<NormalText>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit.
-					Recusandae earum tempore pariatur vitae, voluptas autem ullam
-					blanditiis magni officia laboriosam officiis praesentium
-					perferendis molestiae illum magnam nihil optio! Provident, ea.
-				</NormalText>
+				<NormalText>{career?.description}</NormalText>
 			</View>
 			<View style={styles.section}>
 				<BoldText>Requirement</BoldText>
 				<Gap mb={5} />
-				<NormalText>
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit
-					iusto, tempore dolor corrupti vitae deleniti eveniet fuga id
-					provident omnis.
-				</NormalText>
+				<NormalText>{career?.qualification}</NormalText>
 			</View>
-			<Gap mt={8} />
-			<NormalText>Due date, 20 Mei 2021</NormalText>
+			<Gap mb={10} />
+			<View>
+				<BoldText>Due Date</BoldText>
+				<Gap mb={5} />
+				<NormalText>{new Date(career?.duedate).toDateString()}</NormalText>
+			</View>
 		</Container>
 	);
 };

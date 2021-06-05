@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {View, StyleSheet, Image, TouchableNativeFeedback} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Container} from '../../components/Container';
@@ -7,7 +7,25 @@ import {BoldText} from '../../components/BoldText';
 import {NormalText} from '../../components/NormalText';
 import {Gap} from '../../components/Gap';
 
+interface CareerProps {
+  id_career: number,
+  title: string,
+  qualification: string,
+  description: string,
+  duedate: string,
+  createdAt: string,
+  updatedAt: string
+} 
+
 const Career = ({navigation}: any) => {
+  const [careers, setCareers] = useState<CareerProps[]>([] as CareerProps[])
+
+  useEffect(() => { 
+    fetch('https://ffb1eebfba46.ngrok.io/api/career')
+    .then(res => res.json())
+    .then(({data}) => setCareers(data))
+  }, [])
+
   return (
     <ScrollView style={styles.wrapper} showsVerticalScrollIndicator={false}>
       <Container>
@@ -48,39 +66,26 @@ const Career = ({navigation}: any) => {
           </View>
         </View>
         <Gap mb={10} />
-        <TouchableNativeFeedback
-          onPress={() => navigation.navigate('CareerDetail')}>
-          <View style={styles.card}>
-            <View>
-              <BoldText>Software Engineer</BoldText>
-              <Gap mt={4} />
-              <NormalText fs={11}>25 april 2021</NormalText>
-            </View>
-            <Image style={styles.image} source={Arrow} />
-          </View>
-        </TouchableNativeFeedback>
-        <TouchableNativeFeedback
-          onPress={() => navigation.navigate('CareerDetail')}>
-          <View style={styles.card}>
-            <View>
-              <BoldText>Dosen Teknik Informatika</BoldText>
-              <Gap mt={4} />
-              <NormalText fs={11}>25 april 2021</NormalText>
-            </View>
-            <Image style={styles.image} source={Arrow} />
-          </View>
-        </TouchableNativeFeedback>
-        <TouchableNativeFeedback
-          onPress={() => navigation.navigate('CareerDetail')}>
-          <View style={styles.card}>
-            <View>
-              <BoldText>Marketing</BoldText>
-              <Gap mt={4} />
-              <NormalText fs={11}>25 april 2021</NormalText>
-            </View>
-            <Image style={styles.image} source={Arrow} />
-          </View>
-        </TouchableNativeFeedback>
+        {
+          careers.map(career => {
+            return(
+              <TouchableNativeFeedback
+                onPress={() => navigation.navigate('CareerDetail', {id_career: career.id_career})}
+                key={career.id_career}
+                >
+                <View style={styles.card}>
+                  <View>
+                    <BoldText>{career?.title}</BoldText>
+                    <Gap mt={4} />
+                    <NormalText fs={11}>{new Date(career?.createdAt).toDateString()}</NormalText>
+                  </View>
+                  <Image style={styles.image} source={Arrow} />
+                </View>
+              </TouchableNativeFeedback>
+            )
+          })
+        }
+
       </Container>
     </ScrollView>
   );
