@@ -1,25 +1,42 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {CardContent} from '../../components/CardContent';
 import {Container} from '../../components/Container';
 
+interface NewsProps {
+  id_news: number,
+  title: string,
+  image: string,
+  content: string,
+  createdAt: string,
+  updatedAt: string
+} 
+
 const News = ({navigation}: any) => {
+  const [allNews, setAllNews] = useState<NewsProps[]>([] as NewsProps[])
+
+  useEffect(() => {
+    fetch('https://ffb1eebfba46.ngrok.io/api/news')
+    .then(res => res.json())
+    .then(({data}) => setAllNews(data))
+  }, [])
   return (
     <Container>
       <Text style={styles.header}>Berita Terbaru</Text>
       <View style={styles.eventWrapper}>
-        <CardContent
-          url="https://www.pradita.ac.id/assets/img/post/thumb/experimental-typography-artwork-reviews-by-wgd__VeeTJ.jpg"
-          title="Experimental Typography Artwork reviews by WGD"
-          time="minggu, 22 april 2021"
-          handlePress={() => navigation.navigate('NewsDetail')}
-        />
-        <CardContent
-          url="https://www.pradita.ac.id/assets/img/post/thumb/brand-identity-competition-for-new-wgd-logo-student-chapter__ca6Y7.jpg"
-          title="Brand Identity Competition for New WGD Logo Student Chapter"
-          time="Senin, 23 april 2021"
-          handlePress={() => navigation.navigate('NewsDetail')}
-        />
+        {
+          allNews.map(news => {
+            return (
+              <CardContent
+                key={news.id_news}
+                url={`https://ffb1eebfba46.ngrok.io/${news.image}`}
+                title={news.title}
+                time={new Date(news.createdAt).toDateString()}
+                handlePress={() => navigation.navigate('NewsDetail', {id_news: news.id_news})}
+              />
+            )
+          })
+        }
       </View>
     </Container>
   );

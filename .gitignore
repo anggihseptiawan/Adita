@@ -60,3 +60,5 @@ buck-out/
 
 .env
 dialogflow.js
+# Ignore Gradle build output directory
+build
