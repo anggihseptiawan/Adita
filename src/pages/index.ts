@@ -7,15 +7,17 @@ import NewsDetail from './News/NewsDetail';
 import About from './About';
 import Career from './Career/Index';
 import CareerDetail from './Career/CareerDetail';
+import Splash from './Splash';
 
 export {
-	Home,
-	Chat,
-	Events,
-	EventDetail,
-	News,
-	NewsDetail,
-	About,
-	Career,
-	CareerDetail,
+  Home,
+  Chat,
+  Events,
+  EventDetail,
+  News,
+  NewsDetail,
+  About,
+  Career,
+  CareerDetail,
+  Splash,
 };
