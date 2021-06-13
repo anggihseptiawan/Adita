@@ -20,13 +20,13 @@ const NewsDetail = ({route}: any) => {
 	useEffect(() => {
 		const {id_news} = route.params;
 		
-		fetch(`https://ffb1eebfba46.ngrok.io/api/news/${id_news}`)
+		fetch(`https://c620377b9efe.ngrok.io/api/news/${id_news}`)
     	.then(res => res.json())
     	.then(({data}) => setNews(data))
 
 	}, [])
 	return (
-		<ScrollView showsVerticalScrollIndicator={false}>
+		<ScrollView showsVerticalScrollIndicator={false} style={styles.wrapper}>
 			<Container>
 				<View style={styles.header}>
 					<BoldText>{news.title}</BoldText>
@@ -37,7 +37,7 @@ const NewsDetail = ({route}: any) => {
 					style={styles.image}
 					source={{
 						uri:
-							'https://www.pradita.ac.id/assets/img/post/thumb/experimental-typography-artwork-reviews-by-wgd__VeeTJ.jpg',
+						`https://c620377b9efe.ngrok.io/${news?.image}`,
 					}}
 				/>
 				<View>
@@ -50,12 +50,9 @@ const NewsDetail = ({route}: any) => {
 };
 
 const styles = StyleSheet.create({
-	container: {
+	wrapper: {
 		flex: 1,
-		paddingHorizontal: 10,
-		paddingTop: 20,
-		paddingBottom: 50,
-		width: '100%',
+		backgroundColor: "#FFCF86"
 	},
 	header: {
 		paddingBottom: 20,
