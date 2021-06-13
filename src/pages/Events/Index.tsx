@@ -17,7 +17,7 @@ const Events = ({navigation}: any) => {
   const [events, setEvents] = useState<EventsProps[]>([] as EventsProps[])
 
   useEffect(() => {
-    fetch('https://ffb1eebfba46.ngrok.io/api/events')
+    fetch('https://c620377b9efe.ngrok.io/api/events')
     .then(res => res.json())
     .then(({data}) => setEvents(data))
   }, [])
@@ -31,7 +31,7 @@ const Events = ({navigation}: any) => {
             return(
               <CardContent
                 key={event.id_event}
-                url={`https://ffb1eebfba46.ngrok.io/${event.image}`}
+                url={`https://c620377b9efe.ngrok.io/${event.image}`}
                 title={event.title}
                 time={new Date(event.schedule).toDateString()}
                 handlePress={() => navigation.navigate('EventDetail', {id_event: event.id_event})}

@@ -22,7 +22,7 @@ const EventDetail = ({route}: any) => {
 	useEffect(() => {
 		const {id_event} = route.params;
 		
-		fetch(`https://ffb1eebfba46.ngrok.io/api/events/${id_event}`)
+		fetch(`https://c620377b9efe.ngrok.io/api/events/${id_event}`)
     	.then(res => res.json())
     	.then(({data}) => setEvent(data))
 	}, [])
@@ -38,7 +38,7 @@ const EventDetail = ({route}: any) => {
 					style={styles.image}
 					source={{
 						uri:
-							`https://ffb1eebfba46.ngrok.io/${event?.image}`,
+							`https://c620377b9efe.ngrok.io/${event?.image}`,
 					}}
 				/>
 				<View>

@@ -16,7 +16,7 @@ const News = ({navigation}: any) => {
   const [allNews, setAllNews] = useState<NewsProps[]>([] as NewsProps[])
 
   useEffect(() => { 
-    fetch('https://ffb1eebfba46.ngrok.io/api/news')
+    fetch('https://c620377b9efe.ngrok.io/api/news')
     .then(res => res.json())
     .then(({data}) => setAllNews(data))
   }, [])
@@ -24,13 +24,13 @@ const News = ({navigation}: any) => {
   return (
     <Container>
       <Text style={styles.header}>Berita Terbaru</Text>
-      <View style={styles.eventWrapper}>
+      <View>
         {
           allNews.map(news => {
             return (
               <CardContent
                 key={news.id_news}
-                url={`https://ffb1eebfba46.ngrok.io/${news.image}`}
+                url={`https://c620377b9efe.ngrok.io/${news.image}`}
                 title={news.title}
                 time={new Date(news.createdAt).toDateString()}
                 handlePress={() => navigation.navigate('NewsDetail', {id_news: news.id_news})}
@@ -48,9 +48,9 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     fontWeight: '700',
   },
-  eventWrapper: {
-    width: '100%',
-  },
+  // eventWrapper: {
+  //   width: '100%',
+  // },
 });
 
 export default News;

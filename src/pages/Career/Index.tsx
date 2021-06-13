@@ -21,7 +21,7 @@ const Career = ({navigation}: any) => {
   const [careers, setCareers] = useState<CareerProps[]>([] as CareerProps[])
 
   useEffect(() => { 
-    fetch('https://ffb1eebfba46.ngrok.io/api/career')
+    fetch('https://c620377b9efe.ngrok.io/api/career')
     .then(res => res.json())
     .then(({data}) => setCareers(data))
   }, [])
@@ -93,7 +93,8 @@ const Career = ({navigation}: any) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    minHeight: '100%',
+    flex: 1,
+    backgroundColor: '#FFCF86'
   },
   headerTitle: {
     marginBottom: 20,
